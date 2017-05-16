@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RoundedLayout"
+    android:layout_width="match_parent"
+    android:layout_height="144dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivDish"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_weight="2"
+        android:src="@mipmap/temp_dish1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDishName"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="根本停不下来的糖醋排骨" />
+
+        <TextView
+            android:id="@+id/tvDishMaterial"
+            style="@style/TiniestTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="猪肋排、盐、料酒、酱油、冰糖、白醋、八角"
+            android:textColor="@color/brown" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TinierTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="综合评分" />
+
+            <TextView
+                android:id="@+id/tvDishComment"
+                style="@style/TinierTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:text="9.1"
+                android:textColor="@color/green" />
+
+            <TextView
+                android:id="@+id/tvWeeklyFrequency"
+                style="@style/TinierTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="(七天内16人做过)" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            style="@style/TinierTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="味儿蕾" />
+
+
+    </LinearLayout>
+</LinearLayout>

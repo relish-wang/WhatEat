@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:padding="10dp"
+    tools:context=".activity.homepage.MyFamilyGroupAty">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/aty_rounded_selector">
+
+        <TextView
+            android:id="@+id/tvContactTel"
+            style="@style/TinyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal"
+            android:text="服务电话：123 4567 8900" />
+        <LinearLayout
+            android:id="@+id/llBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvContactTel"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/flQRCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    style="@style/RoundedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="我的家庭二维码" />
+
+                <TextView
+                    style="@style/SimpleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end|center_vertical"
+                    android:text=">>" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flAddFamily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/RoundedTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="加入我的家庭" />
+
+                <TextView
+                    style="@style/SimpleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end|center_vertical"
+                    android:text=">>" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lvFamily"
+            style="@style/SimpleListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llBottom"
+            android:layout_alignParentTop="true" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

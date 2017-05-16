@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_main"
+        android:layout_alignParentBottom="true"
+        android:background="@color/bottom_bar_bg_color"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/layoutHomePage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivHomePage"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/pic" />
+
+            <TextView
+                android:id="@+id/tvHomePage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivHomePage"
+                android:gravity="center"
+                android:text="@string/home_page"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutShoppingCart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivShoppingCart"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/pic" />
+
+            <TextView
+                android:id="@+id/tvShoppingCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivShoppingCart"
+                android:gravity="center"
+                android:text="@string/shopping_cart"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutMine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivMine"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/pic" />
+
+            <TextView
+                android:id="@+id/tvMine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ivMine"
+                android:gravity="center"
+                android:text="@string/mine"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:layout_above="@id/layoutBottom"
+        android:background="#cccbcb" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/line" />
+
+</RelativeLayout>

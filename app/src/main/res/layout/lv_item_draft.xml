@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/ivDraft"
+        style="@style/SimpleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/head" />
+
+    <TextView
+        android:id="@+id/tvDraft"
+        style="@style/SimpleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:singleLine="true"
+        android:text="香卤牛肉" />
+
+    <TextView
+        android:id="@+id/tvSteps"
+        style="@style/TiniestTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:singleLine="true"
+        android:text="步骤1 步骤2 步骤3" />
+</LinearLayout>

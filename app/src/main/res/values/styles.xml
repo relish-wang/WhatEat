@@ -1,0 +1,157 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--整个应用的背景颜色-->
+        <item name="android:windowBackground">@color/app_background</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- 始终处于焦点状态的TextView -->
+    <style name="FTextViewStyle">
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">@dimen/mid_text_size</item>
+    </style>
+    <!-- RoundedTextView -->
+    <style name="RoundedTextView">
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:background">@drawable/tv_rounded_selector</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="RoundedLayout">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/tv_rounded_selector</item>
+    </style>
+
+    <!-- LargeTextView -->
+    <style name="LargeTextView">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/mid_text_size</item>
+    </style>
+
+    <!-- SimpleTextView -->
+    <style name="SimpleTextView">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <!-- SmallTextView -->
+    <style name="SmallTextView">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/smaller_text_size</item>
+    </style>
+
+
+
+    <!-- TinyTextView -->
+    <style name="TinyTextView">
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/tiny_text_size</item>
+    </style>
+
+    <!-- TinierTextView -->
+    <style name="TinierTextView">
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/tinier_text_size</item>
+    </style>
+
+    <!-- TiniestTextView -->
+    <style name="TiniestTextView">
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/tiniest_text_size</item>
+    </style>
+
+    <!-- ListView单行文字的Item样式 -->
+    <style name="ListViewItemSingleLine">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/mid_text_size</item>
+    </style>
+
+
+    <!-- 非单行文字的ListView的Item -->
+    <style name="ListViewSingleLineFalse">
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+    </style>
+
+    <!-- EditText样式 -->
+    <style name="EditTextSelector">
+        <item name="android:background">@drawable/et_bg_selector</item>
+        <item name="android:padding">@dimen/edit_padding</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- EditText样式 -->
+    <style name="NoBorderEditText">
+        <item name="android:background">@drawable/et_bg_selector</item>
+        <item name="android:padding">@dimen/edit_padding</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!-- Button样式 -->
+    <style name="MyButtonStyle">
+        <item name="android:background">@drawable/click</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textSize">@dimen/mid_text_size</item>
+    </style>
+
+    <!-- Button样式 -->
+    <style name="LightBtn">
+        <item name="android:background">@drawable/btn_light_selector</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/tiny_text_size</item>
+    </style>
+
+    <!-- Button样式 -->
+    <style name="DeepBtn">
+        <item name="android:background">@drawable/btn_deep_selector</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="SimpleListView">
+        <item name="android:dividerHeight">10dp</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:divider">@color/aty_bg_color</item>
+    </style>
+
+    <style name="ServiceTel">
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/light_text_color</item>
+        <item name="android:textSize">@dimen/tiny_text_size</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:text">服务电话：123 4567 8900</item>
+    </style>
+</resources>

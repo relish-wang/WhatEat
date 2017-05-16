@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/RoundedLayout"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.xhxkj.zhcs.view.FTextView
+            android:id="@+id/ftvBoothName"
+            style="@style/FTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="C11摊位" />
+
+        <com.xhxkj.zhcs.view.FTextView
+            android:id="@+id/ftvPrice"
+            style="@style/FTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="2.50元/500g" />
+    </LinearLayout>
+
+    <com.xhxkj.zhcs.view.FTextView
+        android:id="@+id/ftvStatistics"
+        style="@style/FTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="共购买过5次，平均评分4.5分" />
+
+</LinearLayout>

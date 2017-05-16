@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    style="@style/RoundedLayout"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layoutMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvPersonName"
+            style="@style/ListViewItemSingleLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A:" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            style="@style/ListViewItemSingleLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我要吃番茄牛肉" />
+    </LinearLayout>
+</RelativeLayout>

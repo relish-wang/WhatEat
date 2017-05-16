@@ -1,0 +1,283 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:orientation="vertical"
+    tools:context="com.xhxkj.zhcs.fragment.StoreListFgm">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/temp_vegetable" />
+
+            <TextView
+                android:id="@+id/tvDistance"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="青菜" />
+
+            <ImageView
+                style="@style/SimpleTextView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/temp_market_icon1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTextPrice"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单价：" />
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥3.0" />
+
+            <TextView
+                android:id="@+id/tvTextPriceUnit"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元/斤" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvWeightText"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重量：" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_toEndOf="@+id/tvWeightText"
+                android:layout_toRightOf="@+id/tvWeightText"
+                android:orientation="horizontal">
+
+                <EditText
+                    style="@style/EditTextSelector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:hint="0.0"
+                    android:text="0.5" />
+
+                <TextView
+                    android:id="@+id/tvTextWeightUnit"
+                    style="@style/SimpleTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="斤" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/include_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/tvTextTotalPrice"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="商品总价:" />
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvTextTotalPrice"
+            android:layout_toRightOf="@+id/tvTextTotalPrice"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="¥1.50"
+            android:textColor="@color/gray" />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/tvTextAddress"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="收货地址:" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvTextAddress"
+            android:layout_toRightOf="@+id/tvTextAddress"
+            android:paddingEnd="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="选择收货地址"
+            android:textColor="@color/gray" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/tvDeliverWayText"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="送货方式:" />
+
+        <TextView
+            android:id="@+id/tvDeliverWay"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvDeliverWayText"
+            android:layout_toRightOf="@+id/tvDeliverWayText"
+            android:text="选择收货方式"
+            android:textColor="@color/gray" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/tvTextExtraService"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="附加服务:" />
+
+        <TextView
+            android:id="@+id/tvExtraService"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvTextExtraService"
+            android:layout_toRightOf="@+id/tvTextExtraService"
+            android:text="无"
+            android:textColor="@color/gray" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp">
+
+        <TextView
+            android:id="@+id/tvTextTime"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="收货时间:" />
+
+        <TextView
+            android:id="@+id/tvCreateTime"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/tvTextTime"
+            android:layout_toRightOf="@+id/tvTextTime"
+            android:hint="选择配送时间、开始时间" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/add"
+            android:visibility="gone" />
+
+        <EditText
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/ivAdd"
+            android:layout_toStartOf="@+id/ivAdd"
+            android:hint="附加服务备注" />
+
+    </RelativeLayout>
+</LinearLayout>

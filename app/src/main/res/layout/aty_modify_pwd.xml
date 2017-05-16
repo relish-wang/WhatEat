@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="com.xhxkj.zhcs.activity.MyModifyActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/aty_rounded_selector">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:shrinkColumns="1"
+            android:stretchColumns="1">
+
+            <EditText
+                android:id="@+id/etOldPwd"
+                style="@style/EditTextSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:inputType="textPassword"
+                android:hint="旧密码"
+                android:textSize="@dimen/mid_text_size" />
+
+
+            <EditText
+                android:id="@+id/etNewPwd"
+                style="@style/EditTextSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="新密码"
+                android:inputType="textPassword"
+                android:textSize="@dimen/mid_text_size" />
+
+
+            <EditText
+                android:id="@+id/etRepeatPwd"
+                style="@style/EditTextSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="确认新密码"
+                android:inputType="textPassword"
+                android:textSize="@dimen/mid_text_size" />
+
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/tvServiceTel"
+            style="@style/ServiceTel" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            style="@style/LightBtn"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_above="@+id/tvServiceTel"
+            android:layout_centerHorizontal="true"
+            android:text="确认提交" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_theme_color">#0381C4</color>
+    <color name="actionbar_color">#fb776a</color>
+
+    <color name="aty_bg_color">#fef1ef</color>
+    <color name="bottom_bar_bg_color">#fefcfc</color>
+    <color name="item_bg_color">#f7d3d0</color>
+
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <!-- 灰白色 -->
+    <color name="gray_white">#eee</color>
+    <!-- 黑色 -->
+    <color name="black">#000000</color>
+    <!-- 浅黑色 -->
+    <color name="light_black">#343434</color>
+    <!-- 灰色 -->
+    <color name="gray">#7a7e82</color>
+    <!-- 浅灰色 -->
+    <color name="light_gray">#bdbebd</color>
+    <!-- 浅黄 -->
+    <color name="light_yellow">#FDA876</color>
+    <!-- 评分色 -->
+    <color name="green">#72A36D</color>
+    <!-- 评分色 -->
+    <color name="brown">#BB8A6B</color>
+
+    <color name="light_red">#f6d3cf</color>
+    <color name="deep_red">#bc4a41</color>
+
+
+    <!--应用的背景颜色-->
+    <color name="app_background">#f0f0f0</color>
+
+    <color name="light_text_color">#bc4a41</color>
+    <color name="deep_text_color">#343434</color>
+    <color name="deep_bg_color">#f6d3cf</color>
+
+
+    <color name="choose_food_color">#fa8b82</color>
+    <color name="market_nearby_color">#fca095</color>
+    <color name="family_group_color">#ffc8c5</color>
+    <color name="private_menu_color">#ffb98f</color>
+    <color name="find_table_color">#ffc5a5</color>
+    <color name="go_2_order_color">#fdb4ad</color>
+    <color name="healthy_diet_color">#ffa976</color>
+    <color name="what_eat_color">#fed4be</color>
+
+</resources>

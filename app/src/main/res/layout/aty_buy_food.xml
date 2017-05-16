@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivDish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/temp_vegetable" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivDish"
+        android:shrinkColumns="1"
+        android:stretchColumns="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单价：" />
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.5" />
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元/斤" />
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTextWeight"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重量：" />
+
+            <TextView
+                android:id="@+id/tvTextWeightUnit"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="斤" />
+
+            <EditText
+                android:id="@+id/etWeight"
+                style="@style/EditTextSelector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/tvTextWeight"
+                android:layout_toLeftOf="@+id/tvTextWeightUnit"
+                android:layout_toRightOf="@+id/tvTextWeight"
+                android:layout_toStartOf="@+id/tvTextWeightUnit"
+                android:text="2" />
+        </RelativeLayout>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/item_bg_color"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTextTotalPrice"
+                style="@style/TinyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="总价:¥" />
+
+            <TextView
+                android:id="@+id/tvTotalPrice"
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="7.0"
+                android:textStyle="bold"
+                android:textColor="#f00" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvBuyItNow"
+            style="@style/SimpleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="#f00"
+            android:text="立即购买"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tvPutItIntoCart"
+            style="@style/SimpleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/llTotalPrice"
+            android:layout_toLeftOf="@+id/tvBuyItNow"
+            android:layout_toRightOf="@+id/llTotalPrice"
+            android:layout_toStartOf="@+id/tvBuyItNow"
+            android:background="#ff0"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="加入购物车" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

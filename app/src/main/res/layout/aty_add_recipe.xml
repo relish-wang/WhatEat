@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    tools:context=".activity.AddRecipeAty">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="0dp"
+        android:paddingEnd="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/etRecipeName"
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="例如：清炒小白菜（简约版）" />
+
+
+        <TextView
+            style="@style/TinyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etRecipeName"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="创建菜谱的人都是厨房里的天使"
+            android:textColor="@color/brown" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnDraft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_light"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/light_text_color"
+        android:text="草稿箱" />
+
+</RelativeLayout>

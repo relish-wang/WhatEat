@@ -1,0 +1,110 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvCenterLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tvCenterLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp">
+
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivLogo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="WHAT EAT"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/huge_text_size" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvCenterLogin"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etName"
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/et_bg_selector"
+            android:drawablePadding="10dp"
+            android:hint="请输入用户名"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="@dimen/mid_text_size" />
+
+
+        <EditText
+            android:id="@+id/etPwd"
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="10dp"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textSize="@dimen/mid_text_size" />
+
+
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="1">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/tvForget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="忘记密码？" />
+
+            <TextView
+                android:id="@+id/tvNewUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:text="新用户注册" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/DeepBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layoutEdit"
+        android:layout_marginTop="10dp"
+        android:text="登    录"
+        android:textSize="@dimen/mid_text_size" />
+</RelativeLayout>

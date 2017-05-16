@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:background="@color/gray" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/line_size"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <EditText
+            android:id="@+id/etName"
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/line_size"
+            android:layout_weight="3"
+            android:focusable="false"
+            android:hint="例如：猪肉" />
+
+        <View
+            android:layout_width="@dimen/line_size"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+        <EditText
+            android:id="@+id/etWeight"
+            style="@style/EditTextSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/line_size"
+            android:layout_weight="2"
+            android:focusable="false"
+            android:hint="500g" />
+
+        <View
+            android:layout_width="@dimen/line_size"
+            android:layout_height="match_parent"
+            android:background="@color/gray" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:background="@color/gray" />
+</LinearLayout>

@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color"
+    android:padding="10dp"
+    tools:context=".activity.homepage.HealthyDietAty">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/aty_rounded_selector">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/aty_rounded_deep"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家庭成员运动情况分析:" />
+
+            <TextView
+                style="@style/TinyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="A：今天运动8.24公里，消耗7千卡路里。" />
+
+            <TextView
+                style="@style/TinyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="B：今天运动3.25公里，消耗7千卡路里。" />
+
+            <TextView
+                style="@style/TinyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginStart="30dp"
+                android:text="C：今天运动9.11公里，消耗7千卡路里。\n" />
+
+            <TextView
+                style="@style/SimpleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="餐饮建议：晚上需要高热量菜品，建议牛肉，搭配蔬菜。" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

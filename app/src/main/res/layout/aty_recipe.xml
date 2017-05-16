@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg_color">
+
+
+    <Button
+        android:id="@+id/btnCollect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_deep"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="收藏"
+        android:textColor="@color/white" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_above="@+id/btnCollect"
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/tvRecipeName"
+                style="@style/LargeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="手工牛肉丸" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tvComment"
+                    style="@style/TinierTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="7.4综合评分" />
+
+                <TextView
+                    android:id="@+id/tvWeeklyFrequency"
+                    style="@style/TinierTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="2人最近7天做过" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvIntroduce"
+                style="@style/TinyTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="从小老妈就喜欢做肉丸汤，不用吊高汤头都很鲜美。似乎家里经常在改进肉丸的制作工序－ －bbb这个爱好在大部分时间由我掌勺的情况下又达到了新的高潮，从以前只是随便买点肉糜加姜末和鸡蛋淀粉抓抓，到现在改进的版本，已经不知道更新了多少次了，先贴出来好了。
+是牛肉丸只是因为这里牛肉比较好买到而已...这只是提供一个丸子的制法。在家里我常常是用猪肉馅儿汆个番茄丸子或者冬瓜丸子汤，也很好吃。
+当然口感比起潮州牛肉丸还是差了很多，不过细嫩弹牙的口感还是能够尽量提升一些。比起靠鸡蛋和较多淀粉成团的丸子来说，这个方法的好处就是肉感够足。"
+                android:textColor="@color/light_black" />
+
+
+            <TextView
+                android:id="@+id/tvAuthorName"
+                style="@style/TinierTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="10dp"
+                android:gravity="end"
+                android:text="labrador" />
+
+            <TextView
+                android:id="@+id/tvCreateTime"
+                style="@style/TinierTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginStart="10dp"
+                android:gravity="end"
+                android:text="创建于2011-09-19" />
+
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="用料" />
+
+            <com.xhxkj.zhcs.view.Lv4Scroll
+                android:id="@+id/lvMaterials"
+                style="@style/SimpleListView"
+                android:dividerHeight="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                style="@style/SmallTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="做法" />
+
+            <com.xhxkj.zhcs.view.Lv4Scroll
+                android:id="@+id/lvSteps"
+                style="@style/SimpleListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                style="@style/DeepBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="上传我做的这道菜" />
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

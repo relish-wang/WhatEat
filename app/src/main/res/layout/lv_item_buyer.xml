@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RoundedLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/SimpleTextView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <com.xhxkj.zhcs.view.FTextView
+                android:id="@+id/ftvBuyerName"
+                style="@style/FTextViewStyle"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张三" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvStar"
+            style="@style/TinyTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:text="未收藏"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <com.xhxkj.zhcs.view.FTextView
+        android:id="@+id/ftvStatistics"
+        style="@style/FTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="共购买过5次，平均评分4.5分" />
+
+</LinearLayout>

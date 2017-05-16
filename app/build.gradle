@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        applicationId "com.xhxkj.zhcs"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // 兼容包
+    compile 'com.android.support:support-v4:25.0.0'
+    // 内存泄漏检查
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    // View注解
+    compile 'com.jakewharton:butterknife:7.0.1'
+    // 网络请求
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    // SwipeListView Item可侧滑的ListView
+    compile 'com.baoyz.swipemenulistview:library:1.3.0'
+    // 其他
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    // RecyclerView封装库
+    compile project(':baseadapterhelper')
+    compile 'com.android.support:cardview-v7:25.0.0'
+
+}
