@@ -1,13 +1,12 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * MarketEntity
  * Created by r3lish on 2016/2/20.
  */
-public class MarketEntity extends BaseEntity implements Comparable<MarketEntity> {
-    Integer id;
+public class MarketEntity extends DataSupportCompat<MarketEntity> implements Comparable<MarketEntity> {
     Integer iconResId;
     String name;
     Double distance;
@@ -41,14 +40,6 @@ public class MarketEntity extends BaseEntity implements Comparable<MarketEntity>
                 }
             }
         }
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {

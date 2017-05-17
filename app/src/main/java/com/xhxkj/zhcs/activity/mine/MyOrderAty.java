@@ -17,6 +17,7 @@ import com.xhxkj.zhcs.entity.OrderEntity;
 import com.xhxkj.zhcs.entity.OrderListEntity;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.presenter.MyOrderAtyPst;
+import com.xhxkj.zhcs.temp.TempData;
 import com.xhxkj.zhcs.view.AppActionBar;
 import com.xhxkj.zhcs.view.FTextView;
 import com.xhxkj.zhcs.vm.MyOrderAtyView;
@@ -55,10 +56,14 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
         appActionBar.setActionBarTitle(getString(R.string.my_order));
     }
 
+    private ArrayList<OrderEntity> mData = new ArrayList<>();
+    OrderAdapter adapter;
+
     @Override
     protected void initViews() {
         pst.update(UserEntity.getSessionId(), 0, 10);//当前第0页 一次加载10条
-        OrderAdapter adapter = new OrderAdapter(new ArrayList<OrderEntity>());
+        mData = new ArrayList<>();
+        adapter = new OrderAdapter(mData);
         lvOrders.setAdapter(adapter);
     }
 
@@ -72,6 +77,7 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
             lvOrders.setVisibility(View.VISIBLE);
             tv_no_data.setVisibility(View.GONE);
         }
+        adapter.update(TempData.getOrders());
         lvOrders.invalidate();
     }
 
@@ -116,8 +122,8 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
             holder.tvDate.setText(order.getDate());
             holder.tvHasEval.setText(order.getComment());
             holder.ivStore.setImageResource(R.mipmap.icon);//TODO 网络图片
-            holder.tvStoreName.setText("什么店什么GUI");//TODO 后台脑残 接口有误 假数据保平安
-            holder.ftvGoods.setText("什么东西也没买还跟老子要好评");//TODO 后台脑残 接口有误 假数据保平安
+            holder.tvStoreName.setText("西门果蔬店");//TODO 后台脑残 接口有误 假数据保平安
+            holder.ftvGoods.setText("芒果、西瓜、香蕉…等");//TODO 后台脑残 接口有误 假数据保平安
             holder.btnEval.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

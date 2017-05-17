@@ -20,7 +20,7 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.base.BaseAty;
 import com.xhxkj.zhcs.view.AppActionBar;
@@ -49,9 +49,9 @@ public class ViewMapAty extends BaseAty implements BDLocationListener {
 
     @Override
     protected void beforeSetContentView() {
-        mLocationClient = new LocationClient(AppContext.APP_CONTEXT);
+        mLocationClient = new LocationClient(App.CONTEXT);
         mLocationClient.registerLocationListener(this);
-        SDKInitializer.initialize(AppContext.APP_CONTEXT);
+        SDKInitializer.initialize(App.CONTEXT);
     }
 
     private BaiduMap baiduMap;

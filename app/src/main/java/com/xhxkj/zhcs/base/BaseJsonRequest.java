@@ -3,7 +3,7 @@ package com.xhxkj.zhcs.base;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.activity.LoginAty;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.network.LoginRequest;
@@ -101,7 +101,7 @@ public abstract class BaseJsonRequest<T> extends BaseRequest<T> {
                         return response;
                     }
                 } else { // 重新登录失败，清空activity堆栈，跳转到登录界面
-                    AppContext.clearActivitiesWithout(LoginAty.class.getSimpleName());
+                    App.clearActivitiesWithout(LoginAty.class.getSimpleName());
                     response.errorMessage = "用户信息失效，请重新登录";
                     return response;
                 }

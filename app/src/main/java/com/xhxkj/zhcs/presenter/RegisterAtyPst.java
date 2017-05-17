@@ -2,14 +2,11 @@ package com.xhxkj.zhcs.presenter;
 
 import android.text.TextUtils;
 
-import com.xhxkj.zhcs.AppContext;
 import com.xhxkj.zhcs.base.BasePst;
 import com.xhxkj.zhcs.base.BaseRequest;
 import com.xhxkj.zhcs.entity.UserEntity;
-import com.xhxkj.zhcs.network.LoginRequest;
 import com.xhxkj.zhcs.network.RegisterRequest;
 import com.xhxkj.zhcs.util.MD5Utils;
-import com.xhxkj.zhcs.vm.RegisterAtyView;
 import com.xhxkj.zhcs.vm.RegisterAtyView;
 
 /**
@@ -37,6 +34,7 @@ public class RegisterAtyPst extends BasePst<RegisterAtyView> {
             public void onSuccess(Void aVoid) {
                 RegisterAtyView view = getView();
                 if(view!=null) {
+                    UserEntity.setTel(tel);
                     view.onRegisterSuccess();
                 }
             }

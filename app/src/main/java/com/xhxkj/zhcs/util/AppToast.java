@@ -3,7 +3,7 @@ package com.xhxkj.zhcs.util;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 
 /**
  * Toast类
@@ -19,8 +19,8 @@ public class AppToast {
      */
     public static void showShort(String message) {
         if (message != null) {
-            Log.d("AppToast", (AppContext.APP_CONTEXT == null) + "");
-            Toast.makeText(AppContext.APP_CONTEXT, message, Toast.LENGTH_SHORT).show();
+            Log.d("AppToast", (App.CONTEXT == null) + "");
+            Toast.makeText(App.CONTEXT, message, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -31,6 +31,6 @@ public class AppToast {
      */
     public static void showLong(String message) {
         if (message != null)
-            Toast.makeText(AppContext.APP_CONTEXT, message, Toast.LENGTH_LONG).show();
+            Toast.makeText(App.CONTEXT, message, Toast.LENGTH_LONG).show();
     }
 }

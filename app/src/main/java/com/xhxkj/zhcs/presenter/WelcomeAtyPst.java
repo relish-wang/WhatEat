@@ -4,17 +4,22 @@ import android.text.TextUtils;
 
 import com.xhxkj.zhcs.base.BasePst;
 import com.xhxkj.zhcs.base.BaseRequest;
-import com.xhxkj.zhcs.entity.AddressEntity;
 import com.xhxkj.zhcs.entity.UserEntity;
-import com.xhxkj.zhcs.network.GetAddressesRequest;
 import com.xhxkj.zhcs.network.LoginRequest;
+import com.xhxkj.zhcs.util.AppPreference;
 import com.xhxkj.zhcs.vm.WelcomeAtyView;
-
-import java.util.ArrayList;
 
 public class WelcomeAtyPst extends BasePst<WelcomeAtyView> {
 
     public void autoLogin() {
+        boolean autoLogin = AppPreference.getBoolean("autoLogin", false);
+        if (!autoLogin) {
+            WelcomeAtyView view = getView();
+            if (view != null) {
+                view.onAutoLoginFail("");
+            }
+            return;
+        }
         // 本地获取用户名密码
         final String username = UserEntity.getName();
         String password = UserEntity.getPwd();

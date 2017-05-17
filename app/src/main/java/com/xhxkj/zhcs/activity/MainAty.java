@@ -7,14 +7,14 @@ import android.support.v7.app.AlertDialog;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.adapter.MyPagerAdapter;
 import com.xhxkj.zhcs.base.BaseAty;
 import com.xhxkj.zhcs.base.BaseFgm;
+import com.xhxkj.zhcs.fragment.CartFgm;
 import com.xhxkj.zhcs.fragment.HomePageFgm;
 import com.xhxkj.zhcs.fragment.MineFgm;
-import com.xhxkj.zhcs.fragment.CartFgm;
 import com.xhxkj.zhcs.presenter.MainAtyPst;
 import com.xhxkj.zhcs.view.AppActionBar;
 import com.xhxkj.zhcs.vm.MainAtyView;
@@ -69,8 +69,8 @@ public class MainAty extends BaseAty implements ViewPager.OnPageChangeListener, 
     AppActionBar appActionBar;
 
     @Override
-    protected boolean useParent(){
-        return false;
+    protected boolean useParent() {
+        return true;
     }
 
     @Override
@@ -86,9 +86,10 @@ public class MainAty extends BaseAty implements ViewPager.OnPageChangeListener, 
 
     @Override
     protected void initActionBar(AppActionBar appActionBar) {
-//        this.appActionBar = appActionBar;
-//        appActionBar.hideBtnBack();
-//        appActionBar.hideBtnCustom();
+        this.appActionBar = appActionBar;
+        appActionBar.hide();
+        appActionBar.hideBtnBack();
+        appActionBar.hideBtnCustom();
     }
 
     @Override
@@ -145,19 +146,19 @@ public class MainAty extends BaseAty implements ViewPager.OnPageChangeListener, 
                 tvHomePage.setTextColor(ContextCompat.getColor(this, R.color.actionbar_color));
                 ivHomePage.setImageResource(R.mipmap.home_page_pressed);
                 viewPager.setCurrentItem(pageIndex);
-//                appActionBar.setActionBarTitle(getString(R.string.home_page));
+                appActionBar.setActionBarTitle(getString(R.string.home_page));
                 break;
             case SHOPPING_CART:
                 tvShoppingCart.setTextColor(ContextCompat.getColor(this, R.color.actionbar_color));
                 ivShoppingCart.setImageResource(R.mipmap.cart_pressed);
                 viewPager.setCurrentItem(pageIndex);
-//                appActionBar.setActionBarTitle(getString(R.string.shopping_cart));
+                appActionBar.setActionBarTitle(getString(R.string.shopping_cart));
                 break;
             case MINE:
                 tvMine.setTextColor(ContextCompat.getColor(this, R.color.actionbar_color));
                 ivMine.setImageResource(R.mipmap.mine_pressed);
                 viewPager.setCurrentItem(pageIndex);
-//                appActionBar.setActionBarTitle(getString(R.string.mine));
+                appActionBar.setActionBarTitle(getString(R.string.mine));
                 break;
         }
     }
@@ -183,7 +184,7 @@ public class MainAty extends BaseAty implements ViewPager.OnPageChangeListener, 
                 .setPositiveButton("退出", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        AppContext.clearActivities();
+                        App.clearActivities();
                     }
                 })
                 .setNegativeButton("取消", null)

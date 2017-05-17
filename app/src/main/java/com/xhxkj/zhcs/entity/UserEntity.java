@@ -2,11 +2,9 @@ package com.xhxkj.zhcs.entity;
 
 import android.text.TextUtils;
 
-import com.xhxkj.zhcs.base.BaseEntity;
-import com.xhxkj.zhcs.base.BaseRequest;
-import com.xhxkj.zhcs.network.ModifyDefaultAddressRequest;
 import com.xhxkj.zhcs.util.AppPreference;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -15,7 +13,7 @@ import java.util.Collections;
  * <p>
  * Created by 鑫 on 2015/11/30.
  */
-public class UserEntity extends BaseEntity {
+public class UserEntity implements Serializable {
     public static final String NAME = "name";
     public static final String PWD = "pwd";
     public static final String SESSION_ID = "sessionId";
@@ -96,7 +94,7 @@ public class UserEntity extends BaseEntity {
     }
 
     public static ArrayList<AddressEntity> getAddresses() {
-        if(UserEntity.addresses == null){
+        if (UserEntity.addresses == null) {
             return new ArrayList<>();
         }
         Collections.sort(UserEntity.addresses);
@@ -112,9 +110,9 @@ public class UserEntity extends BaseEntity {
         if (addresses == null || addresses.size() == 0) return;
         boolean hasSetDefault = false;
         for (AddressEntity address : addresses) {
-            if (TextUtils.equals(address.getId(), defaultAddressId)) {
+            if (TextUtils.equals(address.getId() + "", defaultAddressId)) {
                 setDefaultAddress(address.getAddress());
-                setDefaultAddressId(address.getId());
+                setDefaultAddressId(address.getId() + "");
                 hasSetDefault = true;
                 break;
             }
@@ -125,13 +123,13 @@ public class UserEntity extends BaseEntity {
         // 所以将这些地址里面的id最小的地址作为假的默认地址
         if (!hasSetDefault) {
             setDefaultAddress(addresses.get(0).getAddress());
-            setDefaultAddressId(addresses.get(0).getId());
+            setDefaultAddressId(addresses.get(0).getId() + "");
         }
         UserEntity.addresses = addresses;
     }
 
     public static String getDefaultAddress() {
-        if(TextUtils.isEmpty(defaultAddress)){
+        if (TextUtils.isEmpty(defaultAddress)) {
             return "浙江省杭州市江干区学院街998号";
         }
         return defaultAddress;
@@ -148,7 +146,7 @@ public class UserEntity extends BaseEntity {
      */
     public static void setAddress(AddressEntity address) {
         for (int i = 0; i < addresses.size(); i++) {
-            if (TextUtils.equals(addresses.get(i).getId(), address.getId())) {
+            if (TextUtils.equals(addresses.get(i).getId() + "", address.getId() + "")) {
                 addresses.get(i).setAddress(address.getAddress());
                 addresses.get(i).setName(address.getName());
                 addresses.get(i).setTel(address.getTel());

@@ -1,11 +1,11 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * Created by r3lish on 2016/2/27.
  */
-public class FoodEntity extends BaseEntity {
+public class FoodEntity extends DataSupportCompat<FoodEntity> {
 
     Integer iconResId;
 

@@ -1,13 +1,13 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
-
 import java.util.ArrayList;
+
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * Created by r3lish on 2016/2/21.
  */
-public class RecipeEntity extends BaseEntity {
+public class RecipeEntity extends DataSupportCompat<RecipeEntity> {
 
     Integer iconResId;
     String name;

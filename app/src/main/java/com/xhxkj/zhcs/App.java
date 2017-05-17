@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 import android.util.Log;
 
-import com.squareup.leakcanary.LeakCanary;
-
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Set;
 
-public class AppContext extends Application {
-    private static final String TAG = AppContext.class.getSimpleName();
+public class App extends Application {
+    private static final String TAG = App.class.getSimpleName();
 
     /**
      * 屏幕宽度(px)
@@ -27,18 +25,18 @@ public class AppContext extends Application {
      */
     private static HashMap<String, WeakReference<Activity>> mActivities = new HashMap<>();
 
-    public static AppContext APP_CONTEXT;
+    public static App CONTEXT;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return;
-        }
-        LeakCanary.install(this);
-        APP_CONTEXT = this;
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            // This process is dedicated to LeakCanary for heap analysis.
+//            // You should not init your app in this process.
+//            return;
+//        }
+//        LeakCanary.install(this);
+        CONTEXT = this;
 
         // 获取屏幕的宽高
         screenWidth = getResources().getDisplayMetrics().widthPixels;

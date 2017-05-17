@@ -1,13 +1,13 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
-
 import java.util.ArrayList;
+
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * Created by 鑫 on 2015/12/1.
  */
-public class OrderListEntity  extends BaseEntity {
+public class OrderListEntity extends DataSupportCompat<OrderListEntity> {
     private Integer pageNum;
     private Integer totalNum;
     private Integer totalPageNum;

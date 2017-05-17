@@ -46,8 +46,8 @@ public class GetAddressesRequest extends BaseJsonRequest<ArrayList<AddressEntity
         ArrayList<AddressEntity> addresses = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
             AddressEntity address = new AddressEntity();
-            address.setId(jsonArray.getJSONObject(i).getString("id"));
-            if (TextUtils.equals(address.getId(), UserEntity.getDefaultAddressId())) {
+            address.setId(Long.parseLong(jsonArray.getJSONObject(i).getString("id")));
+            if (TextUtils.equals(address.getId() + "", UserEntity.getDefaultAddressId())) {
                 address.setIsDefault(Boolean.TRUE);
             }
             address.setName(jsonArray.getJSONObject(i).getString("name"));

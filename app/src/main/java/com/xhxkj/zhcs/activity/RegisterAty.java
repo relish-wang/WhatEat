@@ -1,24 +1,34 @@
 package com.xhxkj.zhcs.activity;
 
+import android.Manifest;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
-import android.text.Editable;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.base.BaseAty;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.presenter.RegisterAtyPst;
 import com.xhxkj.zhcs.util.AppToast;
-import com.xhxkj.zhcs.util.FormatWatcher;
-import com.xhxkj.zhcs.util.MD5Utils;
 import com.xhxkj.zhcs.view.AppActionBar;
 import com.xhxkj.zhcs.vm.RegisterAtyView;
 
+import java.util.Random;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
@@ -71,6 +81,14 @@ public class RegisterAty extends BaseAty implements RegisterAtyView, View.OnFocu
     @Bind(R.id.iv_tel_register)
     ImageView ivTel;
 
+    @Bind(R.id.etCode)
+    EditText etCode;
+    @Bind(R.id.btnCode)
+    Button btnCode;
+
+    String mobile;
+    String verify_code;
+
     RegisterAtyPst registerAtyPst;
 
     @Override
@@ -87,6 +105,7 @@ public class RegisterAty extends BaseAty implements RegisterAtyView, View.OnFocu
     @Override
     protected void initActionBar(AppActionBar appActionBar) {
         appActionBar.setActionBarTitle(getString(R.string.register));
+        appActionBar.setBtnBackText("登录");
         appActionBar.setBtnBackOnClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,12 +146,97 @@ public class RegisterAty extends BaseAty implements RegisterAtyView, View.OnFocu
         etPwd.setOnFocusChangeListener(this);
         etRepeatPwd.setOnFocusChangeListener(this);
         etTel.setOnFocusChangeListener(this);
+
+        btnCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!TextUtils.isEmpty(etTel.getText().toString().trim())) {
+                    if (etTel.getText().toString().trim().length() == 11) {
+                        mobile = etTel.getText().toString().trim();
+                        if (mobile.matches(TEL.pattern())) {
+                            verify_code = generateCode();
+                            if (ContextCompat.checkSelfPermission(RegisterAty.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                                ActivityCompat.requestPermissions(RegisterAty.this, new String[]{Manifest.permission.SEND_SMS}, 2);
+                            } else {
+                                sendSms();
+                            }
+                        } else {
+                            Toast.makeText(RegisterAty.this, "请输入完整的电话号码", Toast.LENGTH_LONG).show();
+                            etTel.requestFocus();
+                        }
+                    } else {
+                        Toast.makeText(RegisterAty.this, "请输入完整的电话号码", Toast.LENGTH_LONG).show();
+                        etTel.requestFocus();
+                    }
+                } else {
+                    Toast.makeText(RegisterAty.this, "请输入您的电话号码", Toast.LENGTH_LONG).show();
+                    etTel.requestFocus();
+                }
+            }
+        });
+    }
+
+
+    int second = 60;
+
+    private void sendSms() {
+        sendNotification("新消息", getString(R.string.send_verfiy_code_message, verify_code));
+        etRepeatPwd.clearFocus();
+        closeKeyboard();
+        btnCode.setBackgroundColor(ContextCompat.getColor(this, R.color.gray));
+        btnCode.setClickable(false);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (second > 0) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    second--;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            btnCode.setText("(" + second + ")");
+                        }
+                    });
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        btnCode.setEnabled(true);
+                        btnCode.setClickable(true);
+                        btnCode.setText("获取\n验证码");
+                        btnCode.setBackgroundResource(R.drawable.btn_deep_selector);
+                    }
+                });
+            }
+        }).start();
+
+    }
+    private void closeKeyboard() {
+        View view = getWindow().peekDecorView();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private static String generateCode() {
+        StringBuilder sb = new StringBuilder();
+        Random r = new Random();
+        for (int i = 0; i < 4; i++) {
+            sb.append(r.nextInt(10));
+        }
+        return sb.toString();
     }
 
     @Override
     public void onRegisterSuccess() {
         Intent i = new Intent();
-        i.putExtra(UserEntity.NAME, etName.getText());
+        i.putExtra(UserEntity.NAME, etName.getText().toString());
         setResult(RESULT_OK, i);
         finish();
     }
@@ -185,5 +289,64 @@ public class RegisterAty extends BaseAty implements RegisterAtyView, View.OnFocu
                     break;
             }
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            switch (requestCode) {
+                case 2:
+                    sendSms();
+                    break;
+            }
+        } else {
+            showMessage("拒绝权限将无法使用该软件");
+        }
+    }
+
+
+    protected void sendNotification(final String title, final String message) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showMessage("发送验证码成功！");
+                    }
+                });
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(RegisterAty.this);
+                builder.setSmallIcon(R.mipmap.icon_transparent)
+                        .setContentText(message)
+                        .setContentTitle(title)
+                        .setTicker("新消息")
+                        .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS)
+                        .setAutoCancel(true)
+                        .setPriority(Notification.PRIORITY_MAX)
+                        .setOnlyAlertOnce(true)
+                        .setShowWhen(true)
+                        .setWhen(System.currentTimeMillis());
+                Intent intent = new Intent(App.CONTEXT, RegisterAty.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(RegisterAty.this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+                builder.setContentIntent(pendingIntent);
+                Notification notification = builder.build();
+                NotificationManagerCompat manager = NotificationManagerCompat.from(RegisterAty.this);
+                manager.notify(1, notification);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        etCode.setText(verify_code);
+                    }
+                });
+            }
+        }).start();
     }
 }

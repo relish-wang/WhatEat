@@ -1,13 +1,12 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * OrderEntity
  * Created by 鑫 on 2015/12/1.
  */
-public class OrderEntity extends BaseEntity {
-    private String id;
+public class OrderEntity extends DataSupportCompat<OrderEntity> {
     private String date;
     private String value;
     private String comment;
@@ -15,12 +14,17 @@ public class OrderEntity extends BaseEntity {
     private String user_id;
     private String status;
 
-    public String getId() {
-        return id;
+    public OrderEntity(){
+
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public OrderEntity(String date, String value, String comment, String buyer_id, String user_id, String status) {
+        this.date = date;
+        this.value = value;
+        this.comment = comment;
+        this.buyer_id = buyer_id;
+        this.user_id = user_id;
+        this.status = status;
     }
 
     public String getDate() {
@@ -44,8 +48,8 @@ public class OrderEntity extends BaseEntity {
     }
 
     public void setComment(String comment) {
-        if(comment==null){
-            this.comment="暂无评价";
+        if (comment == null) {
+            this.comment = "暂无评价";
             return;
         }
         this.comment = comment;

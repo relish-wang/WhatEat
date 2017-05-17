@@ -3,22 +3,19 @@ package com.xhxkj.zhcs.base;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.util.AppLog;
 import com.xhxkj.zhcs.util.AppToast;
-import com.xhxkj.zhcs.util.DensityUtil;
 import com.xhxkj.zhcs.util.StatusBarCompat;
 import com.xhxkj.zhcs.view.AppActionBar;
 
@@ -46,11 +43,16 @@ public abstract class BaseAty extends AppCompatActivity implements BaseView {
 
     }
 
+    protected void parseIntent(Intent intent){
+
+    }
+
     protected abstract void initViews();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        parseIntent(getIntent());
         beforeSetContentView();
         int resId = layoutResId();
         if (resId != 0) {
@@ -75,7 +77,7 @@ public abstract class BaseAty extends AppCompatActivity implements BaseView {
                 return;
             }
             // 添加至自定义的activity堆栈
-            AppContext.addActivity(this);
+            App.addActivity(this);
 
             // 设置view注解
             ButterKnife.bind(this, contentView);
@@ -147,7 +149,7 @@ public abstract class BaseAty extends AppCompatActivity implements BaseView {
     protected void onDestroy() {
         super.onDestroy();
         // 在activity被回收时同时将其从自定义堆栈中清除
-        AppContext.removeActivities(this.getClass().getSimpleName());
+        App.removeActivities(this.getClass().getSimpleName());
     }
 
     /**

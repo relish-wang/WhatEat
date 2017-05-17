@@ -168,6 +168,51 @@
                 android:src="@mipmap/correct" />
         </TableRow>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_size"
+            android:background="@color/gray" />
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="验证码："
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/etCode"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/et_bg_selector"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/btnCode"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_deep_selector"
+                android:gravity="center"
+                android:text="获取\n验证码"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+        </TableRow>
+
 
         <View
             android:layout_width="match_parent"

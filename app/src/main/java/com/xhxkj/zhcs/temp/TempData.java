@@ -4,7 +4,9 @@ import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.entity.FoodEntity;
 import com.xhxkj.zhcs.entity.MarketEntity;
 import com.xhxkj.zhcs.entity.MaterialEntity;
+import com.xhxkj.zhcs.entity.OrderEntity;
 import com.xhxkj.zhcs.entity.RecipeEntity;
+import com.xhxkj.zhcs.util.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -248,12 +250,12 @@ public class TempData {
      *
      * @return
      */
-    public static ArrayList<OrderBeanDe> getOrders() {
-        return new ArrayList<OrderBeanDe>() {
+    public static ArrayList<OrderEntity> getOrders() {
+        return new ArrayList<OrderEntity>() {
             {
-                add(new OrderBeanDe(System.currentTimeMillis(), false, R.mipmap.ic_launcher, "海天蔬菜水果店", "白菜、牛肉等"));
-                add(new OrderBeanDe(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78, false, R.mipmap.ic_launcher, "海天麻辣龙虾店", "小龙虾等"));
-                add(new OrderBeanDe(System.currentTimeMillis() - 1000 * 60 * 60 * 23 - 51, true, R.mipmap.ic_launcher, "西门菜市海鲜店", "大闸蟹、大白鲨等"));
+                add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis()), "3.5", "3", "1", "海天蔬菜水果店", "白菜、牛肉等"));
+                add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78), "3.5", "3", "1", "海天麻辣龙虾店", "小龙虾等"));
+                add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78), "3.5", "3", "1", "西门菜市海鲜店", "大闸蟹、大白鲨等"));
 
             }
         };

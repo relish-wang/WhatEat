@@ -1,6 +1,5 @@
 package com.xhxkj.zhcs.activity.mine;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -125,7 +124,7 @@ public class MyAddressAty extends BaseAty implements MyAddressAtyView {
             holder.rdBtnSetAsDefault.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    pst.setAsDefault(UserEntity.getSessionId(), entity.getId());
+                    pst.setAsDefault(UserEntity.getSessionId(), entity.getId()+"");
                 }
             });
             holder.tvEdit.setOnClickListener(new View.OnClickListener() {

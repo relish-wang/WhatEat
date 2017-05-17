@@ -1,11 +1,11 @@
 package com.xhxkj.zhcs.entity;
 
-import com.xhxkj.zhcs.base.BaseEntity;
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * Created by r3lish on 2016/2/28.
  */
-public class MaterialEntity extends BaseEntity {
+public class MaterialEntity extends DataSupportCompat<MaterialEntity> {
     String name;
     String weight;
 

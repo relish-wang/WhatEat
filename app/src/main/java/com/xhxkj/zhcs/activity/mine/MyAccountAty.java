@@ -3,7 +3,7 @@ package com.xhxkj.zhcs.activity.mine;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.activity.LoginAty;
 import com.xhxkj.zhcs.activity.homepage.MyFamilyGroupAty;
@@ -97,8 +97,11 @@ public class MyAccountAty extends BaseAty implements MyAccountAtyView {
     @Override
     public void onLogoutSuccess() {
         AppPreference.clear();
-        AppContext.clearActivities();
-        goActivity(LoginAty.class);
+        App.clearActivities();
+        AppPreference.put("autoLogin", false);
+        Intent intent = new Intent(this,LoginAty.class);
+        intent.putExtra(UserEntity.NAME,UserEntity.getName());
+        startActivity(intent);
     }
 
     @Override

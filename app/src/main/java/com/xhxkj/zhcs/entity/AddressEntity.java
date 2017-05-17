@@ -2,26 +2,17 @@ package com.xhxkj.zhcs.entity;
 
 import android.support.annotation.NonNull;
 
-import com.xhxkj.zhcs.base.BaseEntity;
+import com.xhxkj.zhcs.db.DataSupportCompat;
 
 /**
  * Created by 鑫 on 2015/12/3.
  */
-public class AddressEntity extends BaseEntity implements Comparable<AddressEntity> {
+public class AddressEntity extends DataSupportCompat<AddressEntity> implements Comparable<AddressEntity> {
 
-    private String id;
     private String name;
     private String tel;
     private String addr;
     private Boolean isDefault = Boolean.FALSE;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -60,7 +51,7 @@ public class AddressEntity extends BaseEntity implements Comparable<AddressEntit
         if (this.isDefault) {
             return -1;
         } else if (!another.isDefault) {
-            return another.id.compareTo(this.id);
+            return another.id > this.id ? 1 : -1;
         } else {
             return 1;
         }

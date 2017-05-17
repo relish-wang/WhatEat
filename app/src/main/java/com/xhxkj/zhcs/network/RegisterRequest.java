@@ -2,17 +2,12 @@ package com.xhxkj.zhcs.network;
 
 import android.support.annotation.NonNull;
 
-import com.xhxkj.zhcs.AppContext;
 import com.xhxkj.zhcs.base.BaseJsonRequest;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.util.D;
-import com.xhxkj.zhcs.util.OkHttpInvoker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * 注册

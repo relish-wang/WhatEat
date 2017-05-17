@@ -2,18 +2,14 @@ package com.xhxkj.zhcs.network;
 
 import android.support.annotation.NonNull;
 
-import com.xhxkj.zhcs.AppContext;
 import com.xhxkj.zhcs.base.BaseJsonRequest;
 import com.xhxkj.zhcs.entity.OrderEntity;
 import com.xhxkj.zhcs.entity.OrderListEntity;
-import com.xhxkj.zhcs.entity.UserEntity;
-import com.xhxkj.zhcs.util.OkHttpInvoker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -61,7 +57,7 @@ public class GetOrdersRequest extends BaseJsonRequest<OrderListEntity> {
         for (int i = 0; i < data.length(); i++) {
             JSONObject orderJSON = data.getJSONObject(i);
             OrderEntity order = new OrderEntity();
-            order.setId(orderJSON.getString("id"));
+            order.setId(Long.parseLong(orderJSON.getString("id")));
             order.setDate(orderJSON.getString("Date"));
             order.setValue(orderJSON.getString("value"));
             order.setComment(orderJSON.getString("comment"));
@@ -78,7 +74,7 @@ public class GetOrdersRequest extends BaseJsonRequest<OrderListEntity> {
     protected String parseErrorMessage(int resultCode) {
         if (resultCode == -1) {
             return "登录超时";
-        }else if(resultCode == 1){
+        } else if (resultCode == 1) {
             return "暂无数据";
         }
         return super.parseErrorMessage(resultCode);

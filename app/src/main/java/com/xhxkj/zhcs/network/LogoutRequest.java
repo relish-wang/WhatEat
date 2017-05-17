@@ -3,7 +3,6 @@ package com.xhxkj.zhcs.network;
 import android.support.annotation.NonNull;
 
 import com.xhxkj.zhcs.base.BaseJsonRequest;
-import com.xhxkj.zhcs.entity.UserEntity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -72,10 +72,14 @@
     <string name="view_map">查看地图</string>
     <string name="btn_back_text">btn_back_text</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_verfiy_code_message">【WhatEat】验证码：%s。切勿将验证码泄漏于他人。</string>
+    <string name="phone_number_error">请输入完整的电话号码</string>
+    <string name="phone_number_empty">请输入您的手机号</string>
+    <string name="mobile">手机</string>
+    <string name="verification_code">验证码</string>
+    <string name="permission_denied_message">拒绝权限将无法使用程序</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
 
 
 </resources>

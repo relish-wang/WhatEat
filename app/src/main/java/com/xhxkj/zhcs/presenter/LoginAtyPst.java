@@ -6,6 +6,7 @@ import com.xhxkj.zhcs.base.BasePst;
 import com.xhxkj.zhcs.base.BaseRequest;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.network.LoginRequest;
+import com.xhxkj.zhcs.util.AppPreference;
 import com.xhxkj.zhcs.vm.LoginAtyView;
 
 public class LoginAtyPst extends BasePst<LoginAtyView> {
@@ -30,8 +31,10 @@ public class LoginAtyPst extends BasePst<LoginAtyView> {
                 new BaseRequest.OnResponseListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        UserEntity.setName(name);
-                        UserEntity.setPwd(pwd);
+                        UserEntity userEntity = new UserEntity();
+                        userEntity.setName(name);
+                        userEntity.setPwd(pwd);
+                        AppPreference.saveUser(userEntity);
                         LoginAtyView view = getView();
                         if (view != null) {
                             view.showLoading(false);

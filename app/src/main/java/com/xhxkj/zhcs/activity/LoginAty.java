@@ -9,6 +9,7 @@ import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.base.BaseAty;
 import com.xhxkj.zhcs.entity.UserEntity;
 import com.xhxkj.zhcs.presenter.LoginAtyPst;
+import com.xhxkj.zhcs.util.AppPreference;
 import com.xhxkj.zhcs.view.AppActionBar;
 import com.xhxkj.zhcs.vm.LoginAtyView;
 
@@ -39,14 +40,18 @@ public class LoginAty extends BaseAty implements LoginAtyView {
         loginAtyPst.attachView(this);
     }
 
+    boolean logout = false;
+
     @Override
     protected void initActionBar(AppActionBar appActionBar) {
         appActionBar.hide();
+        Intent intent = getIntent();
+        logout = intent.getBooleanExtra("logout", false);
     }
 
     @Override
     protected void initViews() {
-        etName.setText(UserEntity.getName());
+        etName.setText(AppPreference.getName());
 
         Intent intent = getIntent();
         String name = intent.getStringExtra(UserEntity.NAME);
@@ -70,14 +75,19 @@ public class LoginAty extends BaseAty implements LoginAtyView {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == RegisterAty.REQUEST_CODE_SUCCESS) {
-            String name = "";
-            if (data != null) {
-                name = data.getStringExtra(UserEntity.NAME);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == RegisterAty.REQUEST_CODE_SUCCESS) {
+                String name = "";
+                if (data != null) {
+                    name = data.getStringExtra(UserEntity.NAME);
+                }
+                etName.setText(name);
+                //etPwd.setText(pwd);
+            } else if (requestCode == ForgetPwdActivity.REQUEST_CODE_SUCCESS) {
+                logout = true;
             }
-            etName.setText(name);
-            //etPwd.setText(pwd);
         }
+
     }
 
 
@@ -102,11 +112,17 @@ public class LoginAty extends BaseAty implements LoginAtyView {
      */
     @OnClick(R.id.tvForget)
     public void forget() {
-
+        goActivityForResult(ForgetPwdActivity.class, ForgetPwdActivity.REQUEST_CODE_SUCCESS);
     }
 
     @Override
     public void onLoginSuccess() {
+        if (logout) {
+            showMessage("密码错误！");
+            logout = false;
+            return;
+        }
+        AppPreference.put("autoLogin", true);
         goActivity(MainAty.class);
         finish();
     }

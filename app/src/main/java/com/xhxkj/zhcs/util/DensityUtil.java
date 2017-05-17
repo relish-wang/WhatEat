@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 
 /**
  * dp与px互相转换的工具类
@@ -20,7 +20,7 @@ public class DensityUtil {
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
     public static int dip2px(float dpValue) {
-        final float scale = AppContext.APP_CONTEXT.getResources().getDisplayMetrics().density;
+        final float scale = App.CONTEXT.getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 

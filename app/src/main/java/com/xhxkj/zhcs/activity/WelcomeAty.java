@@ -1,7 +1,6 @@
 package com.xhxkj.zhcs.activity;
 
 import android.content.Intent;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.view.WindowManager;
 

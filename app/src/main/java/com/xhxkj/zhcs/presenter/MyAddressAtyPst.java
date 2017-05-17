@@ -112,7 +112,7 @@ public class MyAddressAtyPst extends BasePst<MyAddressAtyView> {
             view.showLoading(true);
         }
 
-        DeleteAddressRequest deleteAddressRequest = new DeleteAddressRequest(entity.getId());
+        DeleteAddressRequest deleteAddressRequest = new DeleteAddressRequest(entity.getId()+"");
         deleteAddressRequest.setOnResponseListener(new BaseRequest.OnResponseListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

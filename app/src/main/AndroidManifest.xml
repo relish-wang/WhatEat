@@ -8,6 +8,9 @@
     <!-- 检查联网权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -20,7 +23,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".AppContext"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
@@ -29,6 +32,7 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="av9HpaGIw3BOeiAUnBHqYrVD" />
+
         <activity
             android:name=".activity.WelcomeAty"
             android:configChanges="keyboardHidden|orientation"
@@ -79,7 +83,7 @@
             android:resizeableActivity="true"
             android:screenOrientation="portrait"
             android:windowActionBarOverlay="true"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activity.homepage.MarketNearbyAty"
             android:resizeableActivity="true"
@@ -200,6 +204,11 @@
             android:resizeableActivity="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.ForgetPwdActivity"
+            android:resizeableActivity="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
@@ -210,6 +219,7 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
+
 
     </application>
 

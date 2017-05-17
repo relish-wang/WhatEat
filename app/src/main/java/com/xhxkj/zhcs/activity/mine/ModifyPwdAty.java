@@ -2,7 +2,7 @@ package com.xhxkj.zhcs.activity.mine;
 
 import android.widget.EditText;
 
-import com.xhxkj.zhcs.AppContext;
+import com.xhxkj.zhcs.App;
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.activity.LoginAty;
 import com.xhxkj.zhcs.base.BaseAty;
@@ -63,7 +63,7 @@ public class ModifyPwdAty extends BaseAty implements ModifyPwdAtyView {
 
     @Override
     public void onModifyPwdSuccess() {
-        AppContext.clearActivities();
+        App.clearActivities();
         goActivity(LoginAty.class);
     }
 }

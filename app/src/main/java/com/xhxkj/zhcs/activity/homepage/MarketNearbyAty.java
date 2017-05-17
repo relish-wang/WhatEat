@@ -78,7 +78,9 @@ public class MarketNearbyAty extends BaseAty {
 
         selectPage(0);
     }
+
     WaitDialog waitDialog;
+
     public void selectPage(int pageIndex) {
         viewPager.setCurrentItem(pageIndex);
         switch (pageIndex) {
