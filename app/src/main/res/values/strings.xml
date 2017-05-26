@@ -48,7 +48,6 @@
     <string name="has_not_eval">未评价</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_base">Activity基类</string>
     <string name="title_activity_main">主界面</string>
     <string name="title_activity_login">登陆</string>

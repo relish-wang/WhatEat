@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.xhxkj.zhcs.R;
 import com.xhxkj.zhcs.activity.GoodEvaluationAty;
+import com.xhxkj.zhcs.activity.homepage.MarketNearbyAty;
 import com.xhxkj.zhcs.base.BaseAty;
 import com.xhxkj.zhcs.base.BaseViewHolder;
 import com.xhxkj.zhcs.entity.OrderEntity;
@@ -56,40 +57,38 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
         appActionBar.setActionBarTitle(getString(R.string.my_order));
     }
 
-    private ArrayList<OrderEntity> mData = new ArrayList<>();
+    private ArrayList<OrderEntity> orders;
     OrderAdapter adapter;
 
     @Override
     protected void initViews() {
         pst.update(UserEntity.getSessionId(), 0, 10);//当前第0页 一次加载10条
-        mData = new ArrayList<>();
-        adapter = new OrderAdapter(mData);
+        orders = new ArrayList<>();
+        adapter = new OrderAdapter();
         lvOrders.setAdapter(adapter);
     }
 
     @Override
     public void update(OrderListEntity orderList) {
         //TODO 更新ListView
-        if (orderList == null || orderList.getOrders() == null || orderList.getOrders().size() == 0) {
+        orders = TempData.getOrders();
+        if (orders == null || orders.size() == 0) {
             tv_no_data.setVisibility(View.VISIBLE);
             lvOrders.setVisibility(View.GONE);
         } else {
             lvOrders.setVisibility(View.VISIBLE);
             tv_no_data.setVisibility(View.GONE);
         }
-        adapter.update(TempData.getOrders());
-        lvOrders.invalidate();
+        adapter.notifyDataSetChanged();
     }
 
     /**
      * 订单适配器
      */
     class OrderAdapter extends BaseAdapter {
-        ArrayList<OrderEntity> orders;
         LayoutInflater inflater;
 
-        public OrderAdapter(ArrayList<OrderEntity> orders) {
-            this.orders = orders;
+        public OrderAdapter() {
             this.inflater = getLayoutInflater();
         }
 
@@ -122,13 +121,11 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
             holder.tvDate.setText(order.getDate());
             holder.tvHasEval.setText(order.getComment());
             holder.ivStore.setImageResource(R.mipmap.icon);//TODO 网络图片
-            holder.tvStoreName.setText("西门果蔬店");//TODO 后台脑残 接口有误 假数据保平安
-            holder.ftvGoods.setText("芒果、西瓜、香蕉…等");//TODO 后台脑残 接口有误 假数据保平安
-            holder.btnEval.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    goActivity(GoodEvaluationAty.class);
-                }
+            holder.tvStoreName.setText(order.getUser_id());//TODO 后台脑残 接口有误 假数据保平安
+            holder.ftvGoods.setText(order.getStatus());//TODO 后台脑残 接口有误 假数据保平安
+            holder.btnEval.setOnClickListener(view1 -> goActivity(GoodEvaluationAty.class));
+            holder.btnBuyMore.setOnClickListener(v -> {
+                goActivity(MarketNearbyAty.class);
             });
             return view;
         }
@@ -146,16 +143,12 @@ public class MyOrderAty extends BaseAty implements MyOrderAtyView {
             FTextView ftvGoods;
             @Bind(R.id.btnEval)
             Button btnEval;
+            @Bind(R.id.btnBuyMore)
+            Button btnBuyMore;
 
             public ViewHolder(View view) {
                 super(view);
             }
-        }
-
-        public void update(ArrayList<OrderEntity> orders) {
-            this.orders.clear();
-            this.orders.addAll(orders);
-            notifyDataSetChanged();
         }
     }
 }

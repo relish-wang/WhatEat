@@ -115,7 +115,7 @@ public class MyAddressAty extends BaseAty implements MyAddressAtyView {
         }
 
         @Override
-        protected void setItemData(ViewHolder holder, final AddressEntity entity,int position) {
+        protected void setItemData(ViewHolder holder, final AddressEntity entity, int position) {
             holder.tvName.setText(entity.getName());
             holder.tvTel.setText(entity.getTel());
             holder.ftvAddress.setText(entity.getAddress());
@@ -124,7 +124,7 @@ public class MyAddressAty extends BaseAty implements MyAddressAtyView {
             holder.rdBtnSetAsDefault.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    pst.setAsDefault(UserEntity.getSessionId(), entity.getId()+"");
+                    pst.setAsDefault(UserEntity.getSessionId(), entity.getId() + "");
                 }
             });
             holder.tvEdit.setOnClickListener(new View.OnClickListener() {

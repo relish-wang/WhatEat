@@ -4,7 +4,6 @@ package com.xhxkj.zhcs.adapter;
  * Created by r3lish on 2016/2/29.
  */
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -47,7 +46,7 @@ public class StepAdapter extends BaseHolderAdapter<StepAdapter.ViewHolder, Strin
                 @Override
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
-                    aty.goActivity(TextAty.class,bundle);
+                    aty.goActivity(TextAty.class, bundle);
                 }
             });
             holder.tvStep.setVisibility(View.GONE);

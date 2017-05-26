@@ -24,12 +24,11 @@ public class TempData {
 
     public static ArrayList<HashMap<String, Object>> addMenuList = new ArrayList<>();
 
-
-    public TempData() {
-        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("A").setMessage("我要吃番茄牛肉").build());
-        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("B").setMessage("我要吃红烧茄子").build());
-        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(true).setName("C").setMessage("今天晚上吃的清淡一点").build());
-        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("A").setMessage("好的").build());
+    static {
+//        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("A").setMessage("我要吃番茄牛肉").build());
+//        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("B").setMessage("我要吃红烧茄子").build());
+//        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(true).setName("C").setMessage("今天晚上吃的清淡一点").build());
+//        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(false).setName("A").setMessage("好的").build());
     }
 
     /**
@@ -75,7 +74,7 @@ public class TempData {
      */
     public static ArrayList<MessageBeanDe> setMessages(String msg) {
 
-        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(true).setName("C").setMessage(msg).build());
+        messageEntityArrayList.add(new MessageBeanDe.Builder().setIsMe(true).setName("我").setMessage(msg).build());
 
         return messageEntityArrayList;
     }
@@ -154,10 +153,11 @@ public class TempData {
     public static ArrayList<MaterialEntity> getMaterials() {
         return new ArrayList<MaterialEntity>() {
             {
-                add(new MaterialEntity("猪肉", "500g"));
-                add(new MaterialEntity("鸡蛋", "2个"));
-                add(new MaterialEntity("生姜", "2片"));
-                add(new MaterialEntity("大蒜", "少许"));
+                add(new MaterialEntity("蔬菜", "500g"));
+                add(new MaterialEntity("肉类", "500g"));
+                add(new MaterialEntity("蛋类", "2个"));
+                add(new MaterialEntity("调料", "2片"));
+                add(new MaterialEntity("锅底料", "少许"));
             }
         };
     }
@@ -256,6 +256,7 @@ public class TempData {
                 add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis()), "3.5", "3", "1", "海天蔬菜水果店", "白菜、牛肉等"));
                 add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78), "3.5", "3", "1", "海天麻辣龙虾店", "小龙虾等"));
                 add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78), "3.5", "3", "1", "西门菜市海鲜店", "大闸蟹、大白鲨等"));
+                add(new OrderEntity(TimeUtils.longToTimeFormat(System.currentTimeMillis() - 1000 * 60 * 59 * 24 - 78), "3.5", "3", "1", "东菜市海鲜店", "大闸蟹、大白鲨等"));
 
             }
         };

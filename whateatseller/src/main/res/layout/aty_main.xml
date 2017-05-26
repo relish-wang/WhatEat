@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fefcfc"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/layout_home_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_homepage"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_homepage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_homepage"
+                android:gravity="center"
+                android:text="首页"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_inventory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_inventory"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_inventory"
+                android:gravity="center"
+                android:text="库存"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_mine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_mine"
+                android:layout_width="@dimen/bottom_main_image_size"
+                android:layout_height="@dimen/bottom_main_image_size"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/tv_mine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/iv_mine"
+                android:gravity="center"
+                android:text="我的"
+                android:textSize="@dimen/bottom_main_text_size" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_above="@id/layoutBottom"
+        android:background="#cccbcb" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_above="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

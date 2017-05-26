@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- *主界面-主页-我要点菜
+ * 主界面-主页-我要点菜
  *
  * @author 魏一凡
  */
@@ -64,6 +64,7 @@ public class Go2OrderAty extends BaseAty {
     @OnClick(R.id.btnSend)
     public void btnSend() {
         String message = etMessage.getText().toString();
+
         TempData.setMessages(message);
         //initViews();
         adapter.notifyDataSetChanged();

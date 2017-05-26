@@ -106,22 +106,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="7.0"
-                android:textStyle="bold"
-                android:textColor="#f00" />
+                android:textColor="#f00"
+                android:textStyle="bold" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvBuyItNow"
-            style="@style/SimpleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="#f00"
-            android:text="立即购买"
-            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tvPutItIntoCart"
@@ -130,13 +118,11 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toEndOf="@+id/llTotalPrice"
-            android:layout_toLeftOf="@+id/tvBuyItNow"
             android:layout_toRightOf="@+id/llTotalPrice"
-            android:layout_toStartOf="@+id/tvBuyItNow"
             android:background="#ff0"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:text="加入购物车" />
+            android:text="加入购物车"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

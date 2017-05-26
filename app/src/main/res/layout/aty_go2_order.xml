@@ -1,37 +1,157 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/aty_bg_color"
+    android:orientation="vertical"
     tools:context=".activity.homepage.Go2OrderAty">
 
+    <RelativeLayout
+        style="@style/RoundedLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
+        <LinearLayout
+            android:id="@+id/layoutMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvPersonName"
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="弟弟:" />
+
+            <TextView
+                android:id="@+id/tvMessage"
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我要吃番茄牛肉" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/RoundedLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="4dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="妹妹:" />
+
+            <TextView
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我要吃红烧茄子" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            style="@style/RoundedLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="今天晚上吃得清淡一点吧" />
+
+            <TextView
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="：我" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@style/RoundedLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="妈妈:" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/ListViewItemSingleLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="好的" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lvChat"
+        style="@style/SimpleListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <LinearLayout
         android:id="@+id/layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true">
+        android:layout_gravity="bottom"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/etMessage"
-            android:layout_width="280dp"
-            android:layout_height="wrap_content" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:text="发送" />
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:background="@drawable/btn_deep_selector"
+            android:text="发送"
+            android:textColor="@color/white" />
     </LinearLayout>
-
-    <ListView
-        android:id="@+id/lvChat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/layout_bottom"
-        style="@style/SimpleListView"
-        android:layout_alignParentTop="true" />
-</RelativeLayout>
+</LinearLayout>

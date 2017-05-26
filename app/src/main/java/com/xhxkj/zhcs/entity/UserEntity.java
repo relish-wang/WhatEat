@@ -95,7 +95,14 @@ public class UserEntity implements Serializable {
 
     public static ArrayList<AddressEntity> getAddresses() {
         if (UserEntity.addresses == null) {
-            return new ArrayList<>();
+            return new ArrayList<AddressEntity>() {
+                {
+                    add(new AddressEntity("王鑫", "13588015024", "浙江省杭州市江干区学院街998号浙江传媒学院生活区", true));
+                    add(new AddressEntity("易小强", "13500005024", "浙江省杭州市滨江区南环路3738号税友大厦", false));
+                    add(new AddressEntity("Lucky", "13511115024", "浙江省杭州市余杭区五常大道175号大搜车", false));
+                    add(new AddressEntity("一条狗", "13522225024", "浙江省杭州市余杭区五常大道175号大搜车门口的那个狗窝", false));
+                }
+            };
         }
         Collections.sort(UserEntity.addresses);
         return UserEntity.addresses;
@@ -130,7 +137,7 @@ public class UserEntity implements Serializable {
 
     public static String getDefaultAddress() {
         if (TextUtils.isEmpty(defaultAddress)) {
-            return "浙江省杭州市江干区学院街998号";
+            return "浙江省杭州市江干区学源街998号浙江传媒学院生活区";
         }
         return defaultAddress;
     }

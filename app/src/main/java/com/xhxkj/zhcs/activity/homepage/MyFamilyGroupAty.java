@@ -1,6 +1,15 @@
 package com.xhxkj.zhcs.activity.homepage;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +27,8 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+
+import static com.xhxkj.zhcs.util.D.user_info.tel;
 
 /**
  * 主界面-我的-我的家庭组
@@ -62,6 +73,8 @@ public class MyFamilyGroupAty extends BaseAty {
         goActivity(AddFamilyMemberAty.class);
     }
 
+    String tel;
+
     class FamilyMemberAdapter extends BaseHolderAdapter<FamilyMemberAdapter.ViewHolder,MemberBeanDe> {
 
         public FamilyMemberAdapter(BaseAty context, ArrayList<MemberBeanDe> mData) {
@@ -73,10 +86,19 @@ public class MyFamilyGroupAty extends BaseAty {
             return R.layout.lv_item_family;
         }
 
+
         @Override
         protected void setItemData(ViewHolder holder, MemberBeanDe data,int position) {
             holder.tvFamilyName.setText(data.getNickname());
             holder.tvFamilyUser.setText(data.getPhone());
+            holder.btnTel.setOnClickListener(v -> {
+                tel = data.getPhone();
+                if(ContextCompat.checkSelfPermission(MyFamilyGroupAty.this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(MyFamilyGroupAty.this,new String[]{Manifest.permission.CALL_PHONE},1);
+                }else{
+                    call();
+                }
+            });
         }
 
         @Override
@@ -89,11 +111,33 @@ public class MyFamilyGroupAty extends BaseAty {
             TextView tvFamilyUser;
             @Bind(R.id.tvNickname)
             TextView tvFamilyName;
+            @Bind(R.id.btnTel)
+            Button btnTel;
 
             public ViewHolder(View view) {
                 super(view);
             }
         }
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                if(grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                    call();
+                }else{
+                    showMessage("拒绝权限将无法使用该程序");
+                }
+                break;
+        }
+    }
+
+    public void call(){
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        Uri data = Uri.parse("tel:" + tel);
+        intent.setData(data);
+        startActivity(intent);
     }
 }

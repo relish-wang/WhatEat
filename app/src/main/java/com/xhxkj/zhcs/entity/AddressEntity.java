@@ -14,6 +14,16 @@ public class AddressEntity extends DataSupportCompat<AddressEntity> implements C
     private String addr;
     private Boolean isDefault = Boolean.FALSE;
 
+    public AddressEntity() {
+    }
+
+    public AddressEntity(String name, String tel, String addr, Boolean isDefault) {
+        this.name = name;
+        this.tel = tel;
+        this.addr = addr;
+        this.isDefault = isDefault;
+    }
+
     public String getName() {
         return name;
     }
